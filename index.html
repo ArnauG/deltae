@@ -7,31 +7,31 @@
 <meta name="description" content="Consulting Color Deltae S.L. — edició, màrqueting digital i desenvolupament de software des del Penedès.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: columna editorial estreta amb índex lateral; una única franja espectral com a gest de marca (ΔE = diferència de color) */
 :root{
-  --paper:#f4f4f1;
+  --paper:#f6f6f3;
   --paper-2:#eaeae5;
-  --ink:#15181f;
-  --ink-soft:#4a4f5c;
+  --ink:#14171d;
+  --ink-soft:#3b404b;
   --rule:#cfd0ca;
   --accent:#1f3a8a;
   --accent-ink:#ffffff;
-  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --display:"Source Serif 4", Georgia, "Times New Roman", serif;
   --body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --maxw:1120px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#111318; --paper-2:#191c23; --ink:#ecebe6; --ink-soft:#a6a9b3;
-    --rule:#2c3039; --accent:#8fa6ff; --accent-ink:#0d1020; color-scheme:dark;
+    --paper:#111318; --paper-2:#191c23; --ink:#f1f0eb; --ink-soft:#c3c6ce;
+    --rule:#2c3039; --accent:#9db2ff; --accent-ink:#0d1020; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#111318; --paper-2:#191c23; --ink:#ecebe6; --ink-soft:#a6a9b3;
-  --rule:#2c3039; --accent:#8fa6ff; --accent-ink:#0d1020; color-scheme:dark;
+  --paper:#111318; --paper-2:#191c23; --ink:#f1f0eb; --ink-soft:#c3c6ce;
+  --rule:#2c3039; --accent:#9db2ff; --accent-ink:#0d1020; color-scheme:dark;
 }
 
 *{box-sizing:border-box}
@@ -40,7 +40,7 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   background:var(--paper); color:var(--ink);
-  font-family:var(--body); font-size:17px; line-height:1.6;
+  font-family:var(--body); font-size:18px; line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit}
@@ -56,7 +56,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 }
 
 .label{
-  font-family:var(--mono); font-size:12px; letter-spacing:.08em;
+  font-family:var(--mono); font-size:13px; font-weight:500; letter-spacing:.06em;
   text-transform:uppercase; color:var(--ink-soft);
 }
 
@@ -64,17 +64,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
 header.top{
   position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
-  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  background:color-mix(in srgb, var(--paper) 94%, transparent);
   backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
   border-bottom:1px solid var(--rule);
 }
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px}
 .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
-.brand .mark{font-family:var(--display);font-size:26px;font-weight:500;letter-spacing:-.01em}
-.brand .mark i{font-style:italic;font-weight:400}
-.brand .sub{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.brand .mark{font-family:var(--display);font-size:26px;font-weight:600;letter-spacing:-.01em}
+.brand .mark i{font-style:italic;font-weight:500}
+.brand .sub{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 nav.main{display:flex;gap:28px}
-nav.main a{text-decoration:none;font-size:15px;color:var(--ink-soft)}
+nav.main a{text-decoration:none;font-size:16px;font-weight:500;color:var(--ink-soft)}
 nav.main a:hover{color:var(--ink)}
 @media (max-width:720px){nav.main{display:none}.brand .sub{display:none}}
 
@@ -82,12 +82,12 @@ nav.main a:hover{color:var(--ink)}
 .hero{padding-block:clamp(56px,10vw,120px) clamp(40px,6vw,72px)}
 .hero .label{margin-bottom:28px;display:block}
 .hero h1{
-  font-family:var(--display); font-weight:400;
-  font-size:clamp(40px,6.4vw,84px); line-height:1.04; letter-spacing:-.02em;
-  margin:0; max-width:15ch; text-wrap:balance;
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(38px,5.8vw,76px); line-height:1.08; letter-spacing:-.015em;
+  margin:0; max-width:17ch; text-wrap:balance;
 }
-.hero h1 em{font-style:italic}
-.hero .lede{max-width:56ch;margin:32px 0 0;font-size:19px;color:var(--ink-soft)}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+.hero .lede{max-width:56ch;margin:32px 0 0;font-size:20px;color:var(--ink-soft)}
 
 /* Franja espectral: el gest de marca */
 .spectrum{
@@ -109,7 +109,7 @@ nav.main a:hover{color:var(--ink)}
 .spectrum span:nth-child(12){background:oklch(48% .16 355)}
 .spectrum-caption{
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-soft);
+  margin-top:12px;font-family:var(--mono);font-size:13px;color:var(--ink-soft);
   font-variant-numeric:tabular-nums;
 }
 
@@ -117,8 +117,8 @@ nav.main a:hover{color:var(--ink)}
 section.block{border-top:1px solid var(--rule);padding-block:clamp(56px,8vw,96px)}
 .section-head{display:grid;grid-template-columns:220px 1fr;gap:32px;margin-bottom:48px}
 .section-head h2{
-  font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,44px);
-  line-height:1.1;margin:0;letter-spacing:-.01em;text-wrap:balance;
+  font-family:var(--display);font-weight:600;font-size:clamp(30px,3.4vw,42px);
+  line-height:1.15;margin:0;letter-spacing:-.01em;text-wrap:balance;
 }
 .section-head p{margin:16px 0 0;max-width:60ch;color:var(--ink-soft)}
 @media (max-width:820px){.section-head{grid-template-columns:1fr;gap:12px}}
@@ -128,11 +128,11 @@ section.block{border-top:1px solid var(--rule);padding-block:clamp(56px,8vw,96px
 .area{padding:28px 28px 8px 0;border-right:1px solid var(--rule);min-width:0}
 .area + .area{padding-left:28px}
 .area:last-child{border-right:0;padding-right:0}
-.area h3{font-family:var(--display);font-weight:500;font-size:26px;margin:12px 0 12px;line-height:1.15}
-.area p{margin:0 0 16px;color:var(--ink-soft);font-size:16px}
-.area ul{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.area h3{font-family:var(--display);font-weight:600;font-size:25px;margin:12px 0 12px;line-height:1.2}
+.area p{margin:0 0 16px;color:var(--ink-soft);font-size:17px}
+.area ul{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:6px;font-size:16px}
 .area li{padding-left:16px;position:relative}
-.area li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:1px;background:var(--ink-soft)}
+.area li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:1px;background:var(--ink-soft)}
 @media (max-width:820px){
   .areas{grid-template-columns:1fr}
   .area,.area + .area{padding:24px 0 8px;border-right:0;border-bottom:1px solid var(--rule)}
@@ -142,7 +142,7 @@ section.block{border-top:1px solid var(--rule);padding-block:clamp(56px,8vw,96px
 /* Filtre */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
 .filters button{
-  font:500 14px/1 var(--body); color:var(--ink-soft);
+  font:500 15px/1 var(--body); color:var(--ink-soft);
   background:transparent; border:1px solid var(--rule); border-radius:999px;
   padding:10px 16px; cursor:pointer; transition:background .2s, color .2s, border-color .2s;
 }
@@ -157,19 +157,19 @@ section.block{border-top:1px solid var(--rule);padding-block:clamp(56px,8vw,96px
 }
 .project:first-child{border-top:1px solid var(--ink)}
 .project .meta{display:flex;flex-direction:column;gap:6px;min-width:0}
-.project .kind{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.project .kind{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 .project .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:4px 8px;border:1px solid var(--rule);border-radius:3px;color:var(--ink-soft)}
-.project h3{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,42px);line-height:1.05;margin:0 0 16px;letter-spacing:-.01em}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.03em;padding:4px 8px;border:1px solid var(--rule);border-radius:3px;color:var(--ink-soft)}
+.project h3{font-family:var(--display);font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1.1;margin:0 0 16px;letter-spacing:-.01em}
 .project .body{min-width:0}
 .project .body p{margin:0 0 14px;max-width:60ch}
-.project .body p.note{color:var(--ink-soft);font-size:15px}
-.project dl{margin:0;display:grid;gap:14px;align-content:start;font-size:14px}
-.project dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.project .body p.note{color:var(--ink-soft);font-size:16px}
+.project dl{margin:0;display:grid;gap:14px;align-content:start;font-size:15px}
+.project dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
 .project dd{margin:2px 0 0}
 .visit{
   display:inline-flex;align-items:center;gap:8px;margin-top:8px;
-  font-weight:600;font-size:15px;text-decoration:none;color:var(--ink);
+  font-weight:600;font-size:16px;text-decoration:none;color:var(--ink);
   border-bottom:1px solid var(--ink);padding-bottom:2px;
 }
 .visit:hover{color:var(--accent);border-color:var(--accent)}
@@ -187,26 +187,26 @@ section.block{border-top:1px solid var(--rule);padding-block:clamp(56px,8vw,96px
 
 /* Manera de treballar */
 .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
-.principle h3{font-family:var(--display);font-weight:500;font-size:22px;margin:0 0 8px}
+.principle h3{font-family:var(--display);font-weight:600;font-size:23px;margin:0 0 8px}
 .principle p{margin:0;color:var(--ink-soft);max-width:48ch}
 @media (max-width:720px){.principles{grid-template-columns:1fr;gap:28px}}
 
 /* Contacte */
 .contact{background:var(--ink);color:var(--paper)}
 .contact .wrap{padding-block:clamp(64px,9vw,112px)}
-.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1.05;margin:0 0 24px;max-width:18ch;text-wrap:balance}
-.contact h2 em{font-style:italic}
-.contact p{max-width:52ch;margin:0 0 40px;opacity:.78}
+.contact h2{font-family:var(--display);font-weight:600;font-size:clamp(34px,4.6vw,58px);line-height:1.1;margin:0 0 24px;max-width:18ch;text-wrap:balance}
+.contact h2 em{font-style:italic;font-weight:500}
+.contact p{max-width:52ch;margin:0 0 40px;opacity:.88}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid color-mix(in srgb, var(--paper) 25%, transparent);padding-top:28px}
-.contact-grid .label{color:color-mix(in srgb, var(--paper) 65%, transparent)}
+.contact-grid .label{color:color-mix(in srgb, var(--paper) 75%, transparent)}
 .contact-grid div{min-width:0}
-.contact-grid p{margin:8px 0 0;opacity:1;font-size:17px;overflow-wrap:anywhere}
+.contact-grid p{margin:8px 0 0;opacity:1;font-size:18px;overflow-wrap:anywhere}
 .contact-grid a{text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--paper) 40%, transparent)}
 .contact-grid a:hover{border-color:var(--paper)}
 @media (max-width:720px){.contact-grid{grid-template-columns:1fr;gap:20px}}
 
 footer.legal{border-top:1px solid var(--rule)}
-footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:28px;font-size:14px;color:var(--ink-soft)}
+footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:28px;font-size:15px;color:var(--ink-soft)}
 </style>
 </head>
 <body>
@@ -229,7 +229,7 @@ footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap
 <main id="inici">
   <div class="wrap hero">
     <span class="label">Edició · Màrqueting digital · Software</span>
-    <h1>Idees que es llegeixen, es troben i <em>funcionen</em>.</h1>
+    <h1>Fem llibres, webs i software <em>amb cura</em>, des del Penedès.</h1>
     <p class="lede">Consulting Color Deltae és una empresa del Penedès que acompanya projectes culturals i empreses en tres fronts: l'edició de llibres, la presència digital i el desenvolupament de software a mida. Fem els nostres propis productes i també els d'altres.</p>
     <div class="spectrum" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -392,12 +392,12 @@ footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap
 
   <section class="contact" id="contacte">
     <div class="wrap">
-      <span class="label" style="color:inherit;opacity:.7;display:block;margin-bottom:24px">Contacte</span>
+      <span class="label" style="color:inherit;opacity:.8;display:block;margin-bottom:24px">Contacte</span>
       <h2>Tens un projecte? <em>Parlem-ne.</em></h2>
       <p>Expliqueu-nos què necessiteu, sigui un llibre, una web, una aplicació o una estratègia per fer-vos visibles.</p>
       <div class="contact-grid">
         <div><span class="label">Adreça</span><p>08737 Torrelles de Foix<br>Alt Penedès, Barcelona</p></div>
-        <div><span class="label">Correu</span><p>info@deltae.cat</p></div>
+        <div><span class="label">Correu</span><p><a href="mailto:info@ccdeltae.com">info@ccdeltae.com</a></p></div>
         <div><span class="label">Projectes</span><p><a href="https://portantveus.cat" target="_blank" rel="noopener">portantveus.cat</a><br><a href="https://activapp.cat" target="_blank" rel="noopener">activapp.cat</a></p></div>
       </div>
     </div>
