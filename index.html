@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consulting Color Deltae</title>
+<meta name="description" content="Consulting Color Deltae S.L. — edició, màrqueting digital i desenvolupament de software des del Penedès.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: columna editorial estreta amb índex lateral; una única franja espectral com a gest de marca (ΔE = diferència de color) */
+:root{
+  --paper:#f4f4f1;
+  --paper-2:#eaeae5;
+  --ink:#15181f;
+  --ink-soft:#4a4f5c;
+  --rule:#cfd0ca;
+  --accent:#1f3a8a;
+  --accent-ink:#ffffff;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --maxw:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111318; --paper-2:#191c23; --ink:#ecebe6; --ink-soft:#a6a9b3;
+    --rule:#2c3039; --accent:#8fa6ff; --accent-ink:#0d1020; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111318; --paper-2:#191c23; --ink:#ecebe6; --ink-soft:#a6a9b3;
+  --rule:#2c3039; --accent:#8fa6ff; --accent-ink:#0d1020; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{
+  margin:0;
+  background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{
+  max-width:var(--maxw); margin:0 auto;
+  padding-left:max(24px, env(safe-area-inset-left, 0px));
+  padding-right:max(24px, env(safe-area-inset-right, 0px));
+}
+@media (max-width:520px){
+  .wrap{padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+}
+
+.label{
+  font-family:var(--mono); font-size:12px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+
+/* Capçalera */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header.top{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand .mark{font-family:var(--display);font-size:26px;font-weight:500;letter-spacing:-.01em}
+.brand .mark i{font-style:italic;font-weight:400}
+.brand .sub{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+nav.main{display:flex;gap:28px}
+nav.main a{text-decoration:none;font-size:15px;color:var(--ink-soft)}
+nav.main a:hover{color:var(--ink)}
+@media (max-width:720px){nav.main{display:none}.brand .sub{display:none}}
+
+/* Portada */
+.hero{padding-block:clamp(56px,10vw,120px) clamp(40px,6vw,72px)}
+.hero .label{margin-bottom:28px;display:block}
+.hero h1{
+  font-family:var(--display); font-weight:400;
+  font-size:clamp(40px,6.4vw,84px); line-height:1.04; letter-spacing:-.02em;
+  margin:0; max-width:15ch; text-wrap:balance;
+}
+.hero h1 em{font-style:italic}
+.hero .lede{max-width:56ch;margin:32px 0 0;font-size:19px;color:var(--ink-soft)}
+
+/* Franja espectral: el gest de marca */
+.spectrum{
+  margin-top:clamp(40px,6vw,64px);
+  display:grid; grid-template-columns:repeat(12,1fr); height:14px;
+}
+.spectrum span{display:block}
+.spectrum span:nth-child(1){background:oklch(55% .17 25)}
+.spectrum span:nth-child(2){background:oklch(60% .16 45)}
+.spectrum span:nth-child(3){background:oklch(70% .15 75)}
+.spectrum span:nth-child(4){background:oklch(78% .15 100)}
+.spectrum span:nth-child(5){background:oklch(68% .15 135)}
+.spectrum span:nth-child(6){background:oklch(58% .13 160)}
+.spectrum span:nth-child(7){background:oklch(55% .10 195)}
+.spectrum span:nth-child(8){background:oklch(50% .12 235)}
+.spectrum span:nth-child(9){background:oklch(42% .15 265)}
+.spectrum span:nth-child(10){background:oklch(42% .15 295)}
+.spectrum span:nth-child(11){background:oklch(45% .15 330)}
+.spectrum span:nth-child(12){background:oklch(48% .16 355)}
+.spectrum-caption{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-soft);
+  font-variant-numeric:tabular-nums;
+}
+
+/* Seccions */
+section.block{border-top:1px solid var(--rule);padding-block:clamp(56px,8vw,96px)}
+.section-head{display:grid;grid-template-columns:220px 1fr;gap:32px;margin-bottom:48px}
+.section-head h2{
+  font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,44px);
+  line-height:1.1;margin:0;letter-spacing:-.01em;text-wrap:balance;
+}
+.section-head p{margin:16px 0 0;max-width:60ch;color:var(--ink-soft)}
+@media (max-width:820px){.section-head{grid-template-columns:1fr;gap:12px}}
+
+/* Àrees */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.area{padding:28px 28px 8px 0;border-right:1px solid var(--rule);min-width:0}
+.area + .area{padding-left:28px}
+.area:last-child{border-right:0;padding-right:0}
+.area h3{font-family:var(--display);font-weight:500;font-size:26px;margin:12px 0 12px;line-height:1.15}
+.area p{margin:0 0 16px;color:var(--ink-soft);font-size:16px}
+.area ul{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.area li{padding-left:16px;position:relative}
+.area li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:1px;background:var(--ink-soft)}
+@media (max-width:820px){
+  .areas{grid-template-columns:1fr}
+  .area,.area + .area{padding:24px 0 8px;border-right:0;border-bottom:1px solid var(--rule)}
+  .area:last-child{border-bottom:0}
+}
+
+/* Filtre */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.filters button{
+  font:500 14px/1 var(--body); color:var(--ink-soft);
+  background:transparent; border:1px solid var(--rule); border-radius:999px;
+  padding:10px 16px; cursor:pointer; transition:background .2s, color .2s, border-color .2s;
+}
+.filters button:hover{border-color:var(--ink);color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Projectes */
+.projects{list-style:none;margin:0;padding:0}
+.project{
+  display:grid;grid-template-columns:220px 1fr 220px;gap:32px;
+  padding-block:40px;border-bottom:1px solid var(--rule);
+}
+.project:first-child{border-top:1px solid var(--ink)}
+.project .meta{display:flex;flex-direction:column;gap:6px;min-width:0}
+.project .kind{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.project .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:4px 8px;border:1px solid var(--rule);border-radius:3px;color:var(--ink-soft)}
+.project h3{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,42px);line-height:1.05;margin:0 0 16px;letter-spacing:-.01em}
+.project .body{min-width:0}
+.project .body p{margin:0 0 14px;max-width:60ch}
+.project .body p.note{color:var(--ink-soft);font-size:15px}
+.project dl{margin:0;display:grid;gap:14px;align-content:start;font-size:14px}
+.project dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.project dd{margin:2px 0 0}
+.visit{
+  display:inline-flex;align-items:center;gap:8px;margin-top:8px;
+  font-weight:600;font-size:15px;text-decoration:none;color:var(--ink);
+  border-bottom:1px solid var(--ink);padding-bottom:2px;
+}
+.visit:hover{color:var(--accent);border-color:var(--accent)}
+.visit svg{width:12px;height:12px}
+@media (max-width:960px){
+  .project{grid-template-columns:1fr 200px}
+  .project .meta{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px}
+  .project .tags{margin-top:0}
+}
+@media (max-width:640px){
+  .project{grid-template-columns:1fr;gap:20px}
+  .project dl{grid-template-columns:1fr 1fr}
+}
+.empty{padding:40px 0;color:var(--ink-soft)}
+
+/* Manera de treballar */
+.principles{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
+.principle h3{font-family:var(--display);font-weight:500;font-size:22px;margin:0 0 8px}
+.principle p{margin:0;color:var(--ink-soft);max-width:48ch}
+@media (max-width:720px){.principles{grid-template-columns:1fr;gap:28px}}
+
+/* Contacte */
+.contact{background:var(--ink);color:var(--paper)}
+.contact .wrap{padding-block:clamp(64px,9vw,112px)}
+.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1.05;margin:0 0 24px;max-width:18ch;text-wrap:balance}
+.contact h2 em{font-style:italic}
+.contact p{max-width:52ch;margin:0 0 40px;opacity:.78}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid color-mix(in srgb, var(--paper) 25%, transparent);padding-top:28px}
+.contact-grid .label{color:color-mix(in srgb, var(--paper) 65%, transparent)}
+.contact-grid div{min-width:0}
+.contact-grid p{margin:8px 0 0;opacity:1;font-size:17px;overflow-wrap:anywhere}
+.contact-grid a{text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--paper) 40%, transparent)}
+.contact-grid a:hover{border-color:var(--paper)}
+@media (max-width:720px){.contact-grid{grid-template-columns:1fr;gap:20px}}
+
+footer.legal{border-top:1px solid var(--rule)}
+footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:28px;font-size:14px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inici" aria-label="Consulting Color Deltae, inici">
+      <span class="mark">Delta<i>e</i></span>
+      <span class="sub">Consulting Color S.L.</span>
+    </a>
+    <nav class="main" aria-label="Navegació principal">
+      <a href="#serveis">Serveis</a>
+      <a href="#projectes">Projectes</a>
+      <a href="#metode">Mètode</a>
+      <a href="#contacte">Contacte</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inici">
+  <div class="wrap hero">
+    <span class="label">Edició · Màrqueting digital · Software</span>
+    <h1>Idees que es llegeixen, es troben i <em>funcionen</em>.</h1>
+    <p class="lede">Consulting Color Deltae és una empresa del Penedès que acompanya projectes culturals i empreses en tres fronts: l'edició de llibres, la presència digital i el desenvolupament de software a mida. Fem els nostres propis productes i també els d'altres.</p>
+    <div class="spectrum" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="spectrum-caption">
+      <span>ΔE₀₀ &lt; 1,0 · diferència imperceptible a l'ull humà</span>
+      <span>Aquest és el nostre llistó de qualitat</span>
+    </div>
+  </div>
+
+  <section class="block" id="serveis">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Serveis</span>
+        <div>
+          <h2>Tres disciplines, un mateix equip</h2>
+          <p>Treballem el contingut, la difusió i la tecnologia de manera conjunta, perquè un bon producte necessita les tres coses alhora.</p>
+        </div>
+      </div>
+      <div class="areas">
+        <article class="area">
+          <span class="label">Editorial</span>
+          <h3>Edició i producció de llibres</h3>
+          <p>Del manuscrit al llibre imprès, amb el segell Portantveus.</p>
+          <ul>
+            <li>Edició, correcció i traducció</li>
+            <li>Il·lustració i maquetació</li>
+            <li>Presentacions i activitats culturals</li>
+          </ul>
+        </article>
+        <article class="area">
+          <span class="label">Màrqueting digital</span>
+          <h3>Visibilitat i posicionament</h3>
+          <p>Fem que el que fas es trobi quan algú ho busca.</p>
+          <ul>
+            <li>SEO tècnic i de contingut</li>
+            <li>Estratègia de continguts</li>
+            <li>Analítica i mesura de resultats</li>
+          </ul>
+        </article>
+        <article class="area">
+          <span class="label">Software</span>
+          <h3>Webs i aplicacions a mida</h3>
+          <p>Producte digital sòlid, ràpid i preparat per créixer.</p>
+          <ul>
+            <li>Webs corporatives i botigues</li>
+            <li>Aplicacions web i mòbil</li>
+            <li>Backend, dades i infraestructura</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projectes">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Projectes</span>
+        <div>
+          <h2>Treball desenvolupat</h2>
+          <p>Projectes propis i encàrrecs per a clients.</p>
+          <div class="filters" role="group" aria-label="Filtra per àrea" style="margin-top:28px">
+            <button type="button" id="f-all" data-filter="all" aria-pressed="true">Tots</button>
+            <button type="button" id="f-editorial" data-filter="editorial" aria-pressed="false">Editorial</button>
+            <button type="button" id="f-marketing" data-filter="marketing" aria-pressed="false">Màrqueting digital</button>
+            <button type="button" id="f-software" data-filter="software" aria-pressed="false">Software</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="projects" id="project-list">
+        <li class="project" data-areas="editorial marketing software">
+          <div class="meta">
+            <span class="kind">Segell editorial propi</span>
+            <div class="tags"><span class="tag">Editorial</span><span class="tag">Web</span><span class="tag">SEO</span></div>
+          </div>
+          <div class="body">
+            <h3>Portantveus</h3>
+            <p>Editorial independent en català de contes, àlbums il·lustrats, primeres lectures i novel·la d'autors catalans. Cada títol passa per un procés de lectura, debat i revisió, i s'acompanya de presentacions, clubs de lectura i activitats escèniques.</p>
+            <p class="note">Catàleg actual: <i>L'Aran i les paraules màgiques</i>, <i>L'onada de contes</i>, <i>El ratolí Olí</i>, <i>El xup-xup de l'Aris</i> i <i>Pi, pa, pipa!</i>. En preparació, la col·lecció Jaume Plagumà amb novel·les inèdites de Teresa Juvé, Creu de Sant Jordi.</p>
+            <a class="visit" href="https://portantveus.cat" target="_blank" rel="noopener">portantveus.cat
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+          </div>
+          <dl>
+            <div><dt>Abast</dt><dd>Edició, disseny, web i posicionament</dd></div>
+            <div><dt>Títols publicats</dt><dd>5</dd></div>
+            <div><dt>Llengua</dt><dd>Català</dd></div>
+          </dl>
+        </li>
+
+        <li class="project" data-areas="software marketing">
+          <div class="meta">
+            <span class="kind">Producte propi</span>
+            <div class="tags"><span class="tag">Aplicació</span><span class="tag">Geolocalització</span><span class="tag">SEO</span></div>
+          </div>
+          <div class="body">
+            <h3>ActivApp</h3>
+            <p>Plataforma per descobrir què fer avui i aquest cap de setmana a Catalunya: activitats culturals, esportives, de natura, festes i plans en família, gratuïts i de pagament, en un mapa i un llistat.</p>
+            <p class="note">Cada activitat es situa automàticament al seu municipi, comarca i província, de manera que tot el territori té pàgines pròpies i ben posicionades. Disponible en català, castellà, anglès i francès.</p>
+            <a class="visit" href="https://activapp.cat" target="_blank" rel="noopener">activapp.cat
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+          </div>
+          <dl>
+            <div><dt>Abast</dt><dd>Producte, backend geoespacial, frontend i SEO</dd></div>
+            <div><dt>Cobertura</dt><dd>Les quatre províncies, per comarques</dd></div>
+            <div><dt>Idiomes</dt><dd>CA · ES · EN · FR</dd></div>
+          </dl>
+        </li>
+
+        <li class="project" data-areas="software marketing">
+          <div class="meta">
+            <span class="kind">Projecte per a client</span>
+            <div class="tags"><span class="tag">Web corporativa</span><span class="tag">Alimentació</span></div>
+          </div>
+          <div class="body">
+            <h3>Làctics Foix</h3>
+            <p>Disseny i desenvolupament de la presència web d'una empresa làctia del territori: una web clara per presentar l'empresa i els seus productes i facilitar el contacte amb clients i distribuïdors.</p>
+          </div>
+          <dl>
+            <div><dt>Abast</dt><dd>Disseny, desenvolupament web i posicionament</dd></div>
+            <div><dt>Sector</dt><dd>Alimentació</dd></div>
+          </dl>
+        </li>
+
+        <li class="project" data-areas="software">
+          <div class="meta">
+            <span class="kind">Servei a empreses</span>
+            <div class="tags"><span class="tag">Backend</span><span class="tag">Cloud</span><span class="tag">Integracions</span></div>
+          </div>
+          <div class="body">
+            <h3>Desenvolupament de software a mida</h3>
+            <p>Construïm aplicacions i serveis per a empreses que necessiten alguna cosa que no existeix al mercat: plataformes web, sistemes d'autenticació, integracions entre eines i processament de dades.</p>
+            <p class="note">Experiència en entorns de gran escala: Kotlin, Java, Kubernetes, AWS, PostgreSQL i PostGIS.</p>
+          </div>
+          <dl>
+            <div><dt>Abast</dt><dd>Arquitectura, desenvolupament i manteniment</dd></div>
+            <div><dt>Model</dt><dd>Projecte tancat o col·laboració continuada</dd></div>
+          </dl>
+        </li>
+      </ul>
+      <p class="empty" id="empty" hidden>No hi ha projectes en aquesta àrea.</p>
+    </div>
+  </section>
+
+  <section class="block" id="metode">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Mètode</span>
+        <div><h2>Com treballem</h2></div>
+      </div>
+      <div class="principles">
+        <div class="principle"><h3>Rigor</h3><p>Revisem cada text, cada pantalla i cada línia de codi fins que la diferència entre el que s'havia imaginat i el que s'entrega no es nota.</p></div>
+        <div class="principle"><h3>Proximitat</h3><p>Som al Penedès i treballem cara a cara. Coneixem el territori, la llengua i les persones amb qui col·laborem.</p></div>
+        <div class="principle"><h3>Producte propi</h3><p>Fem servir les mateixes eines i criteris en els nostres projectes que en els dels clients. Allò que recomanem, ho hem provat.</p></div>
+        <div class="principle"><h3>Independència</h3><p>No depenem de grans grups. Escollim els projectes que creiem que valen la pena i hi responem directament.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacte">
+    <div class="wrap">
+      <span class="label" style="color:inherit;opacity:.7;display:block;margin-bottom:24px">Contacte</span>
+      <h2>Tens un projecte? <em>Parlem-ne.</em></h2>
+      <p>Expliqueu-nos què necessiteu, sigui un llibre, una web, una aplicació o una estratègia per fer-vos visibles.</p>
+      <div class="contact-grid">
+        <div><span class="label">Adreça</span><p>08737 Torrelles de Foix<br>Alt Penedès, Barcelona</p></div>
+        <div><span class="label">Correu</span><p>info@deltae.cat</p></div>
+        <div><span class="label">Projectes</span><p><a href="https://portantveus.cat" target="_blank" rel="noopener">portantveus.cat</a><br><a href="https://activapp.cat" target="_blank" rel="noopener">activapp.cat</a></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="legal">
+  <div class="wrap">
+    <span>© 2026 Consulting Color Deltae S.L.</span>
+    <span>Torrelles de Foix · Alt Penedès</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.filters button');
+  var items = document.querySelectorAll('#project-list .project');
+  var empty = document.getElementById('empty');
+  function apply(f){
+    var shown = 0;
+    items.forEach(function(li){
+      var ok = f === 'all' || li.dataset.areas.split(' ').indexOf(f) !== -1;
+      li.hidden = !ok; if(ok) shown++;
+    });
+    empty.hidden = shown !== 0;
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.filter === f)); });
+  }
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.filter); }); });
+})();
+</script>
+</body>
+</html>
