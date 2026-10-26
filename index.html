@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Consulting Color Deltae</title>
-<meta name="description" content="Consulting Color Deltae S.L. — edició, màrqueting digital i desenvolupament de software des del Penedès.">
+<meta name="description" content="Consulting Color Deltae S.L. — desenvolupament web i d'aplicacions, edició, fotografia i audiovisual, continguts digitals i formació des del Penedès.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -123,20 +123,19 @@ section.block{border-top:1px solid var(--rule);padding-block:clamp(56px,8vw,96px
 .section-head p{margin:16px 0 0;max-width:60ch;color:var(--ink-soft)}
 @media (max-width:820px){.section-head{grid-template-columns:1fr;gap:12px}}
 
-/* Àrees */
-.areas{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
-.area{padding:28px 28px 8px 0;border-right:1px solid var(--rule);min-width:0}
-.area + .area{padding-left:28px}
-.area:last-child{border-right:0;padding-right:0}
-.area h3{font-family:var(--display);font-weight:600;font-size:25px;margin:12px 0 12px;line-height:1.2}
-.area p{margin:0 0 16px;color:var(--ink-soft);font-size:17px}
-.area ul{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+/* Àrees: llista numerada, una fila per àmbit */
+.areas{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);counter-reset:area}
+.area{display:grid;grid-template-columns:64px minmax(0,1.1fr) minmax(0,1fr);gap:8px 32px;padding-block:32px;border-bottom:1px solid var(--rule)}
+.area::before{counter-increment:area;content:counter(area, decimal-leading-zero);font-family:var(--mono);font-size:14px;font-weight:500;color:var(--accent);padding-top:6px}
+.area .label{display:block}
+.area h3{font-family:var(--display);font-weight:600;font-size:27px;margin:8px 0 10px;line-height:1.2}
+.area p{margin:0;color:var(--ink-soft);font-size:17px;max-width:46ch}
+.area ul{list-style:none;padding:0;margin:0;padding-top:30px;display:flex;flex-direction:column;gap:6px;font-size:16px}
 .area li{padding-left:16px;position:relative}
 .area li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:1px;background:var(--ink-soft)}
 @media (max-width:820px){
-  .areas{grid-template-columns:1fr}
-  .area,.area + .area{padding:24px 0 8px;border-right:0;border-bottom:1px solid var(--rule)}
-  .area:last-child{border-bottom:0}
+  .area{grid-template-columns:40px minmax(0,1fr);padding-block:28px}
+  .area ul{grid-column:2;padding-top:12px}
 }
 
 /* Filtre */
@@ -228,9 +227,9 @@ footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap
 
 <main id="inici">
   <div class="wrap hero">
-    <span class="label">Edició · Màrqueting digital · Software</span>
-    <h1>Fem llibres, webs i software <em>amb cura</em>, des del Penedès.</h1>
-    <p class="lede">Consulting Color Deltae és una empresa del Penedès que acompanya projectes culturals i empreses en tres fronts: l'edició de llibres, la presència digital i el desenvolupament de software a mida. Fem els nostres propis productes i també els d'altres.</p>
+    <span class="label">Software · Edició · Fotografia i audiovisual · Continguts · Formació</span>
+    <h1>Webs, llibres, imatges i cursos, fets <em>amb cura</em> des del Penedès.</h1>
+    <p class="lede">Consulting Color Deltae és una empresa del Penedès que acompanya projectes culturals, entitats i empreses en tot el que necessiten per existir i fer-se veure: desenvolupament de webs i aplicacions, edició de llibres, fotografia i producció audiovisual, continguts i màrqueting digital, i formació. Fem els nostres propis productes i també els d'altres.</p>
     <div class="spectrum" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span><span></span>
       <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -246,42 +245,77 @@ footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap
       <div class="section-head">
         <span class="label">Serveis</span>
         <div>
-          <h2>Tres disciplines, un mateix equip</h2>
-          <p>Treballem el contingut, la difusió i la tecnologia de manera conjunta, perquè un bon producte necessita les tres coses alhora.</p>
+          <h2>Cinc àmbits, un mateix equip</h2>
+          <p>Treballem la tecnologia, el text, la imatge i la difusió de manera conjunta, perquè un bon projecte ho necessita tot alhora. I ensenyem a fer-ho.</p>
         </div>
       </div>
-      <div class="areas">
-        <article class="area">
-          <span class="label">Editorial</span>
-          <h3>Edició i producció de llibres</h3>
-          <p>Del manuscrit al llibre imprès, amb el segell Portantveus.</p>
+      <ol class="areas">
+        <li class="area">
+          <div>
+            <span class="label">Software</span>
+            <h3>Webs i aplicacions</h3>
+            <p>Disseny, desenvolupament i manteniment de webs, portals, plataformes i aplicacions mòbils sòlides i preparades per créixer.</p>
+          </div>
           <ul>
-            <li>Edició, correcció i traducció</li>
-            <li>Il·lustració i maquetació</li>
-            <li>Presentacions i activitats culturals</li>
+            <li>Webs corporatives, portals i botigues</li>
+            <li>Aplicacions web i mòbil</li>
+            <li>Backend, dades, integracions i infraestructura</li>
+            <li>Manteniment i evolució</li>
           </ul>
-        </article>
-        <article class="area">
-          <span class="label">Màrqueting digital</span>
-          <h3>Visibilitat i posicionament</h3>
-          <p>Fem que el que fas es trobi quan algú ho busca.</p>
+        </li>
+        <li class="area">
+          <div>
+            <span class="label">Editorial</span>
+            <h3>Edició i producció de llibres</h3>
+            <p>Tot el procés editorial, del manuscrit a la llibreria, en paper i en digital. Ho fem per a autors i institucions, i amb el nostre segell, Portantveus.</p>
+          </div>
           <ul>
-            <li>SEO tècnic i de contingut</li>
-            <li>Estratègia de continguts</li>
+            <li>Avaluació d'originals i coordinació editorial</li>
+            <li>Correcció ortotipogràfica i d'estil, traducció</li>
+            <li>Maquetació, disseny de cobertes i il·lustració</li>
+            <li>Impressió, distribució, drets i promoció</li>
+          </ul>
+        </li>
+        <li class="area">
+          <div>
+            <span class="label">Fotografia i audiovisual</span>
+            <h3>Imatge i vídeo</h3>
+            <p>Fotografia professional i producció audiovisual, des de la presa fins a l'edició i el retoc final, amb el color com a obsessió.</p>
+          </div>
+          <ul>
+            <li>Fotografia comercial, corporativa i de producte</li>
+            <li>Reportatge d'esdeveniments i fotografia artística</li>
+            <li>Retoc, tractament i gestió del color</li>
+            <li>Producció i edició de vídeo</li>
+          </ul>
+        </li>
+        <li class="area">
+          <div>
+            <span class="label">Continguts i màrqueting</span>
+            <h3>Comunicació digital</h3>
+            <p>Disseny, continguts i estratègia perquè el que fas es vegi i es trobi quan algú ho busca.</p>
+          </div>
+          <ul>
+            <li>Disseny gràfic i il·lustració</li>
+            <li>Redacció i gestió de continguts multimèdia</li>
+            <li>SEO, publicitat i màrqueting digital</li>
             <li>Analítica i mesura de resultats</li>
           </ul>
-        </article>
-        <article class="area">
-          <span class="label">Software</span>
-          <h3>Webs i aplicacions a mida</h3>
-          <p>Producte digital sòlid, ràpid i preparat per créixer.</p>
+        </li>
+        <li class="area">
+          <div>
+            <span class="label">Formació</span>
+            <h3>Cursos i tallers</h3>
+            <p>Formació presencial i en línia sobre el que fem cada dia, per a escoles, entitats, empreses i particulars.</p>
+          </div>
           <ul>
-            <li>Webs corporatives i botigues</li>
-            <li>Aplicacions web i mòbil</li>
-            <li>Backend, dades i infraestructura</li>
+            <li>Tecnologia, disseny web i aplicacions</li>
+            <li>Fotografia, edició i traducció</li>
+            <li>Creació de continguts digitals</li>
+            <li>Educació i arts escèniques</li>
           </ul>
-        </article>
-      </div>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -295,7 +329,7 @@ footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap
           <div class="filters" role="group" aria-label="Filtra per àrea" style="margin-top:28px">
             <button type="button" id="f-all" data-filter="all" aria-pressed="true">Tots</button>
             <button type="button" id="f-editorial" data-filter="editorial" aria-pressed="false">Editorial</button>
-            <button type="button" id="f-marketing" data-filter="marketing" aria-pressed="false">Màrqueting digital</button>
+            <button type="button" id="f-marketing" data-filter="marketing" aria-pressed="false">Continguts i màrqueting</button>
             <button type="button" id="f-software" data-filter="software" aria-pressed="false">Software</button>
           </div>
         </div>
@@ -382,7 +416,7 @@ footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap
         <div><h2>Com treballem</h2></div>
       </div>
       <div class="principles">
-        <div class="principle"><h3>Rigor</h3><p>Revisem cada text, cada pantalla i cada línia de codi fins que la diferència entre el que s'havia imaginat i el que s'entrega no es nota.</p></div>
+        <div class="principle"><h3>Rigor</h3><p>Revisem cada text, cada imatge, cada pantalla i cada línia de codi fins que la diferència entre el que s'havia imaginat i el que s'entrega no es nota.</p></div>
         <div class="principle"><h3>Proximitat</h3><p>Som al Penedès i treballem cara a cara. Coneixem el territori, la llengua i les persones amb qui col·laborem.</p></div>
         <div class="principle"><h3>Producte propi</h3><p>Fem servir les mateixes eines i criteris en els nostres projectes que en els dels clients. Allò que recomanem, ho hem provat.</p></div>
         <div class="principle"><h3>Independència</h3><p>No depenem de grans grups. Escollim els projectes que creiem que valen la pena i hi responem directament.</p></div>
@@ -394,7 +428,7 @@ footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap
     <div class="wrap">
       <span class="label" style="color:inherit;opacity:.8;display:block;margin-bottom:24px">Contacte</span>
       <h2>Tens un projecte? <em>Parlem-ne.</em></h2>
-      <p>Expliqueu-nos què necessiteu, sigui un llibre, una web, una aplicació o una estratègia per fer-vos visibles.</p>
+      <p>Expliqueu-nos què necessiteu, sigui una web, una aplicació, un llibre, una sessió de fotos, un vídeo, un curs o una estratègia per fer-vos visibles.</p>
       <div class="contact-grid">
         <div><span class="label">Adreça</span><p>08737 Torrelles de Foix<br>Alt Penedès, Barcelona</p></div>
         <div><span class="label">Correu</span><p><a href="mailto:info@ccdeltae.com">info@ccdeltae.com</a></p></div>
