@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Consulting Color Deltae</title>
 <meta name="description" content="Consulting Color Deltae S.L. — desenvolupament web i d'aplicacions, edició, fotografia i audiovisual, continguts digitals i formació des del Penedès.">
+<link rel="canonical" href="https://ccdeltae.com/">
+<link rel="alternate" hreflang="ca" href="https://ccdeltae.com/">
+<link rel="alternate" hreflang="es" href="https://ccdeltae.com/es/">
+<link rel="alternate" hreflang="en" href="https://ccdeltae.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://ccdeltae.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -77,6 +82,13 @@ nav.main{display:flex;gap:28px}
 nav.main a{text-decoration:none;font-size:16px;font-weight:500;color:var(--ink-soft)}
 nav.main a:hover{color:var(--ink)}
 @media (max-width:720px){nav.main{display:none}.brand .sub{display:none}}
+
+/* Selector d'idioma */
+.lang{display:flex;gap:2px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.04em}
+.lang a{text-decoration:none;color:var(--ink-soft);padding:6px 8px;border-radius:3px}
+.lang a:hover{color:var(--ink);background:var(--paper-2)}
+.lang a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+header.top .right{display:flex;align-items:center;gap:28px}
 
 /* Portada */
 .hero{padding-block:clamp(56px,10vw,120px) clamp(40px,6vw,72px)}
@@ -216,12 +228,15 @@ footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap
       <span class="mark">Delta<i>e</i></span>
       <span class="sub">Consulting Color S.L.</span>
     </a>
+    <div class="right">
     <nav class="main" aria-label="Navegació principal">
       <a href="#serveis">Serveis</a>
       <a href="#projectes">Projectes</a>
       <a href="#metode">Mètode</a>
       <a href="#contacte">Contacte</a>
     </nav>
+    <nav class="lang" aria-label="Idioma"><a href="./" hreflang="ca" lang="ca" aria-current="page">CA</a><a href="es/" hreflang="es" lang="es">ES</a><a href="en/" hreflang="en" lang="en">EN</a></nav>
+    </div>
   </div>
 </header>
 

@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consulting Color Deltae</title>
+<meta name="description" content="{{meta_description}}">
+{{head_links}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: columna editorial estreta amb índex lateral; una única franja espectral com a gest de marca (ΔE = diferència de color) */
+:root{
+  --paper:#f6f6f3;
+  --paper-2:#eaeae5;
+  --ink:#14171d;
+  --ink-soft:#3b404b;
+  --rule:#cfd0ca;
+  --accent:#1f3a8a;
+  --accent-ink:#ffffff;
+  --display:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --maxw:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111318; --paper-2:#191c23; --ink:#f1f0eb; --ink-soft:#c3c6ce;
+    --rule:#2c3039; --accent:#9db2ff; --accent-ink:#0d1020; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111318; --paper-2:#191c23; --ink:#f1f0eb; --ink-soft:#c3c6ce;
+  --rule:#2c3039; --accent:#9db2ff; --accent-ink:#0d1020; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{
+  margin:0;
+  background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:18px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{
+  max-width:var(--maxw); margin:0 auto;
+  padding-left:max(24px, env(safe-area-inset-left, 0px));
+  padding-right:max(24px, env(safe-area-inset-right, 0px));
+}
+@media (max-width:520px){
+  .wrap{padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+}
+
+.label{
+  font-family:var(--mono); font-size:13px; font-weight:500; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+
+/* Capçalera */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header.top{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
+  background:color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand .mark{font-family:var(--display);font-size:26px;font-weight:600;letter-spacing:-.01em}
+.brand .mark i{font-style:italic;font-weight:500}
+.brand .sub{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+nav.main{display:flex;gap:28px}
+nav.main a{text-decoration:none;font-size:16px;font-weight:500;color:var(--ink-soft)}
+nav.main a:hover{color:var(--ink)}
+@media (max-width:720px){nav.main{display:none}.brand .sub{display:none}}
+
+/* Selector d'idioma */
+.lang{display:flex;gap:2px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.04em}
+.lang a{text-decoration:none;color:var(--ink-soft);padding:6px 8px;border-radius:3px}
+.lang a:hover{color:var(--ink);background:var(--paper-2)}
+.lang a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+header.top .right{display:flex;align-items:center;gap:28px}
+
+/* Portada */
+.hero{padding-block:clamp(56px,10vw,120px) clamp(40px,6vw,72px)}
+.hero .label{margin-bottom:28px;display:block}
+.hero h1{
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(38px,5.8vw,76px); line-height:1.08; letter-spacing:-.015em;
+  margin:0; max-width:17ch; text-wrap:balance;
+}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+.hero .lede{max-width:56ch;margin:32px 0 0;font-size:20px;color:var(--ink-soft)}
+
+/* Franja espectral: el gest de marca */
+.spectrum{
+  margin-top:clamp(40px,6vw,64px);
+  display:grid; grid-template-columns:repeat(12,1fr); height:14px;
+}
+.spectrum span{display:block}
+.spectrum span:nth-child(1){background:oklch(55% .17 25)}
+.spectrum span:nth-child(2){background:oklch(60% .16 45)}
+.spectrum span:nth-child(3){background:oklch(70% .15 75)}
+.spectrum span:nth-child(4){background:oklch(78% .15 100)}
+.spectrum span:nth-child(5){background:oklch(68% .15 135)}
+.spectrum span:nth-child(6){background:oklch(58% .13 160)}
+.spectrum span:nth-child(7){background:oklch(55% .10 195)}
+.spectrum span:nth-child(8){background:oklch(50% .12 235)}
+.spectrum span:nth-child(9){background:oklch(42% .15 265)}
+.spectrum span:nth-child(10){background:oklch(42% .15 295)}
+.spectrum span:nth-child(11){background:oklch(45% .15 330)}
+.spectrum span:nth-child(12){background:oklch(48% .16 355)}
+.spectrum-caption{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-top:12px;font-family:var(--mono);font-size:13px;color:var(--ink-soft);
+  font-variant-numeric:tabular-nums;
+}
+
+/* Seccions */
+section.block{border-top:1px solid var(--rule);padding-block:clamp(56px,8vw,96px)}
+.section-head{display:grid;grid-template-columns:220px 1fr;gap:32px;margin-bottom:48px}
+.section-head h2{
+  font-family:var(--display);font-weight:600;font-size:clamp(30px,3.4vw,42px);
+  line-height:1.15;margin:0;letter-spacing:-.01em;text-wrap:balance;
+}
+.section-head p{margin:16px 0 0;max-width:60ch;color:var(--ink-soft)}
+@media (max-width:820px){.section-head{grid-template-columns:1fr;gap:12px}}
+
+/* Àrees: llista numerada, una fila per àmbit */
+.areas{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);counter-reset:area}
+.area{display:grid;grid-template-columns:64px minmax(0,1.1fr) minmax(0,1fr);gap:8px 32px;padding-block:32px;border-bottom:1px solid var(--rule)}
+.area::before{counter-increment:area;content:counter(area, decimal-leading-zero);font-family:var(--mono);font-size:14px;font-weight:500;color:var(--accent);padding-top:6px}
+.area .label{display:block}
+.area h3{font-family:var(--display);font-weight:600;font-size:27px;margin:8px 0 10px;line-height:1.2}
+.area p{margin:0;color:var(--ink-soft);font-size:17px;max-width:46ch}
+.area ul{list-style:none;padding:0;margin:0;padding-top:30px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.area li{padding-left:16px;position:relative}
+.area li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:1px;background:var(--ink-soft)}
+@media (max-width:820px){
+  .area{grid-template-columns:40px minmax(0,1fr);padding-block:28px}
+  .area ul{grid-column:2;padding-top:12px}
+}
+
+/* Filtre */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.filters button{
+  font:500 15px/1 var(--body); color:var(--ink-soft);
+  background:transparent; border:1px solid var(--rule); border-radius:999px;
+  padding:10px 16px; cursor:pointer; transition:background .2s, color .2s, border-color .2s;
+}
+.filters button:hover{border-color:var(--ink);color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Projectes */
+.projects{list-style:none;margin:0;padding:0}
+.project{
+  display:grid;grid-template-columns:220px 1fr 220px;gap:32px;
+  padding-block:40px;border-bottom:1px solid var(--rule);
+}
+.project:first-child{border-top:1px solid var(--ink)}
+.project .meta{display:flex;flex-direction:column;gap:6px;min-width:0}
+.project .kind{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.project .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.03em;padding:4px 8px;border:1px solid var(--rule);border-radius:3px;color:var(--ink-soft)}
+.project h3{font-family:var(--display);font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1.1;margin:0 0 16px;letter-spacing:-.01em}
+.project .body{min-width:0}
+.project .body p{margin:0 0 14px;max-width:60ch}
+.project .body p.note{color:var(--ink-soft);font-size:16px}
+.project dl{margin:0;display:grid;gap:14px;align-content:start;font-size:15px}
+.project dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.project dd{margin:2px 0 0}
+.visit{
+  display:inline-flex;align-items:center;gap:8px;margin-top:8px;
+  font-weight:600;font-size:16px;text-decoration:none;color:var(--ink);
+  border-bottom:1px solid var(--ink);padding-bottom:2px;
+}
+.visit:hover{color:var(--accent);border-color:var(--accent)}
+.visit svg{width:12px;height:12px}
+@media (max-width:960px){
+  .project{grid-template-columns:1fr 200px}
+  .project .meta{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px}
+  .project .tags{margin-top:0}
+}
+@media (max-width:640px){
+  .project{grid-template-columns:1fr;gap:20px}
+  .project dl{grid-template-columns:1fr 1fr}
+}
+.empty{padding:40px 0;color:var(--ink-soft)}
+
+/* Manera de treballar */
+.principles{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
+.principle h3{font-family:var(--display);font-weight:600;font-size:23px;margin:0 0 8px}
+.principle p{margin:0;color:var(--ink-soft);max-width:48ch}
+@media (max-width:720px){.principles{grid-template-columns:1fr;gap:28px}}
+
+/* Contacte */
+.contact{background:var(--ink);color:var(--paper)}
+.contact .wrap{padding-block:clamp(64px,9vw,112px)}
+.contact h2{font-family:var(--display);font-weight:600;font-size:clamp(34px,4.6vw,58px);line-height:1.1;margin:0 0 24px;max-width:18ch;text-wrap:balance}
+.contact h2 em{font-style:italic;font-weight:500}
+.contact p{max-width:52ch;margin:0 0 40px;opacity:.88}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid color-mix(in srgb, var(--paper) 25%, transparent);padding-top:28px}
+.contact-grid .label{color:color-mix(in srgb, var(--paper) 75%, transparent)}
+.contact-grid div{min-width:0}
+.contact-grid p{margin:8px 0 0;opacity:1;font-size:18px;overflow-wrap:anywhere}
+.contact-grid a{text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--paper) 40%, transparent)}
+.contact-grid a:hover{border-color:var(--paper)}
+@media (max-width:720px){.contact-grid{grid-template-columns:1fr;gap:20px}}
+
+footer.legal{border-top:1px solid var(--rule)}
+footer.legal .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:28px;font-size:15px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inici" aria-label="{{consulting_color_deltae_inici}}">
+      <span class="mark">Delta<i>e</i></span>
+      <span class="sub">Consulting Color S.L.</span>
+    </a>
+    <div class="right">
+    <nav class="main" aria-label="{{navegacio_principal}}">
+      <a href="#serveis">{{serveis}}</a>
+      <a href="#projectes">{{projectes}}</a>
+      <a href="#metode">{{metode}}</a>
+      <a href="#contacte">{{contacte}}</a>
+    </nav>
+    {{lang_nav}}
+    </div>
+  </div>
+</header>
+
+<main id="inici">
+  <div class="wrap hero">
+    <span class="label">{{software_edicio_fotografia_i}}</span>
+    <h1>{{webs_llibres_imatges_i_cursos}}</h1>
+    <p class="lede">{{consulting_color_deltae_es_una}}</p>
+    <div class="spectrum" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="spectrum-caption">
+      <span>{{e00_1_0_diferencia_imperceptible}}</span>
+      <span>{{aquest_es_el_nostre_llisto_de}}</span>
+    </div>
+  </div>
+
+  <section class="block" id="serveis">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">{{serveis}}</span>
+        <div>
+          <h2>{{cinc_ambits_un_mateix_equip}}</h2>
+          <p>{{treballem_la_tecnologia_el_text}}</p>
+        </div>
+      </div>
+      <ol class="areas">
+        <li class="area">
+          <div>
+            <span class="label">Software</span>
+            <h3>{{webs_i_aplicacions}}</h3>
+            <p>{{disseny_desenvolupament_i}}</p>
+          </div>
+          <ul>
+            <li>{{webs_corporatives_portals_i}}</li>
+            <li>{{aplicacions_web_i_mobil}}</li>
+            <li>{{backend_dades_integracions_i}}</li>
+            <li>{{manteniment_i_evolucio}}</li>
+          </ul>
+        </li>
+        <li class="area">
+          <div>
+            <span class="label">{{editorial}}</span>
+            <h3>{{edicio_i_produccio_de_llibres}}</h3>
+            <p>{{tot_el_proces_editorial_del}}</p>
+          </div>
+          <ul>
+            <li>{{avaluacio_d_originals_i}}</li>
+            <li>{{correccio_ortotipografica_i_d}}</li>
+            <li>{{maquetacio_disseny_de_cobertes_i}}</li>
+            <li>{{impressio_distribucio_drets_i}}</li>
+          </ul>
+        </li>
+        <li class="area">
+          <div>
+            <span class="label">{{fotografia_i_audiovisual}}</span>
+            <h3>{{imatge_i_video}}</h3>
+            <p>{{fotografia_professional_i}}</p>
+          </div>
+          <ul>
+            <li>{{fotografia_comercial_corporativa}}</li>
+            <li>{{reportatge_d_esdeveniments_i}}</li>
+            <li>{{retoc_tractament_i_gestio_del}}</li>
+            <li>{{produccio_i_edicio_de_video}}</li>
+          </ul>
+        </li>
+        <li class="area">
+          <div>
+            <span class="label">{{continguts_i_marqueting}}</span>
+            <h3>{{comunicacio_digital}}</h3>
+            <p>{{disseny_continguts_i_estrategia}}</p>
+          </div>
+          <ul>
+            <li>{{disseny_grafic_i_illustracio}}</li>
+            <li>{{redaccio_i_gestio_de_continguts}}</li>
+            <li>{{seo_publicitat_i_marqueting}}</li>
+            <li>{{analitica_i_mesura_de_resultats}}</li>
+          </ul>
+        </li>
+        <li class="area">
+          <div>
+            <span class="label">{{formacio}}</span>
+            <h3>{{cursos_i_tallers}}</h3>
+            <p>{{formacio_presencial_i_en_linia}}</p>
+          </div>
+          <ul>
+            <li>{{tecnologia_disseny_web_i}}</li>
+            <li>{{fotografia_edicio_i_traduccio}}</li>
+            <li>{{creacio_de_continguts_digitals}}</li>
+            <li>{{educacio_i_arts_esceniques}}</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="projectes">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">{{projectes}}</span>
+        <div>
+          <h2>{{treball_desenvolupat}}</h2>
+          <p>{{projectes_propis_i_encarrecs_per}}</p>
+          <div class="filters" role="group" aria-label="{{filtra_per_area}}" style="margin-top:28px">
+            <button type="button" id="f-all" data-filter="all" aria-pressed="true">{{tots}}</button>
+            <button type="button" id="f-editorial" data-filter="editorial" aria-pressed="false">{{editorial}}</button>
+            <button type="button" id="f-marketing" data-filter="marketing" aria-pressed="false">{{continguts_i_marqueting}}</button>
+            <button type="button" id="f-software" data-filter="software" aria-pressed="false">Software</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="projects" id="project-list">
+        <li class="project" data-areas="editorial marketing software">
+          <div class="meta">
+            <span class="kind">{{segell_editorial_propi}}</span>
+            <div class="tags"><span class="tag">{{editorial}}</span><span class="tag">Web</span><span class="tag">SEO</span></div>
+          </div>
+          <div class="body">
+            <h3>Portantveus</h3>
+            <p>{{editorial_independent_en_catala}}</p>
+            <p class="note">{{cataleg_actual}} <i>L'Aran i les paraules màgiques</i>, <i>L'onada de contes</i>, <i>El ratolí Olí</i>, <i>El xup-xup de l'Aris</i>{{i}}<i>Pi, pa, pipa!</i>{{en_preparacio_la_colleccio_jaume}}</p>
+            <a class="visit" href="https://portantveus.cat" target="_blank" rel="noopener">portantveus.cat
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+          </div>
+          <dl>
+            <div><dt>{{abast}}</dt><dd>{{edicio_disseny_web_i}}</dd></div>
+            <div><dt>{{titols_publicats}}</dt><dd>5</dd></div>
+            <div><dt>{{llenguacatala}}</dd></div>
+          </dl>
+        </li>
+
+        <li class="project" data-areas="software marketing">
+          <div class="meta">
+            <span class="kind">{{producte_propi}}</span>
+            <div class="tags"><span class="tag">{{aplicacio}}</span><span class="tag">{{geolocalitzacio}}</span><span class="tag">SEO</span></div>
+          </div>
+          <div class="body">
+            <h3>ActivApp</h3>
+            <p>{{plataforma_per_descobrir_que_fer}}</p>
+            <p class="note">{{cada_activitat_es_situa}}</p>
+            <a class="visit" href="https://activapp.cat" target="_blank" rel="noopener">activapp.cat
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+          </div>
+          <dl>
+            <div><dt>{{abast}}</dt><dd>{{producte_backend_geoespacial}}</dd></div>
+            <div><dt>{{coberturales_quatre_provincies}}</dd></div>
+            <div><dt>{{idiomes}}</dt><dd>CA · ES · EN · FR</dd></div>
+          </dl>
+        </li>
+
+        <li class="project" data-areas="software marketing">
+          <div class="meta">
+            <span class="kind">{{projecte_per_a_client}}</span>
+            <div class="tags"><span class="tag">{{web_corporativa}}</span><span class="tag">{{alimentacio}}</span></div>
+          </div>
+          <div class="body">
+            <h3>Làctics Foix</h3>
+            <p>{{disseny_i_desenvolupament_de_la}}</p>
+          </div>
+          <dl>
+            <div><dt>{{abast}}</dt><dd>{{disseny_desenvolupament_web_i}}</dd></div>
+            <div><dt>Sector</dt><dd>{{alimentacio}}</dd></div>
+          </dl>
+        </li>
+
+        <li class="project" data-areas="software">
+          <div class="meta">
+            <span class="kind">{{servei_a_empreses}}</span>
+            <div class="tags"><span class="tag">Backend</span><span class="tag">Cloud</span><span class="tag">{{integracions}}</span></div>
+          </div>
+          <div class="body">
+            <h3>{{desenvolupament_de_software_a}}</h3>
+            <p>{{construim_aplicacions_i_serveis}}</p>
+            <p class="note">{{experiencia_en_entorns_de_gran}}</p>
+          </div>
+          <dl>
+            <div><dt>{{abast}}</dt><dd>{{arquitectura_desenvolupament_i}}</dd></div>
+            <div><dt>{{modelprojecte_tancat_o}}</dd></div>
+          </dl>
+        </li>
+      </ul>
+      <p class="empty" id="empty" hidden>{{no_hi_ha_projectes_en_aquesta}}</p>
+    </div>
+  </section>
+
+  <section class="block" id="metode">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">{{metode}}</span>
+        <div><h2>{{com_treballem}}</h2></div>
+      </div>
+      <div class="principles">
+        <div class="principle"><h3>{{rigor}}</h3><p>{{revisem_cada_text_cada_imatge}}</p></div>
+        <div class="principle"><h3>{{proximitat}}</h3><p>{{som_al_penedes_i_treballem_cara_a}}</p></div>
+        <div class="principle"><h3>{{metode_producte_propi}}</h3><p>{{fem_servir_les_mateixes_eines_i}}</p></div>
+        <div class="principle"><h3>{{independencia}}</h3><p>{{no_depenem_de_grans_grups}}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacte">
+    <div class="wrap">
+      <span class="label" style="color:inherit;opacity:.8;display:block;margin-bottom:24px">{{contacte}}</span>
+      <h2>{{tens_un_projecte_parlem_ne}}</em></h2>
+      <p>{{expliqueu_nos_que_necessiteu}}</p>
+      <div class="contact-grid">
+        <div><span class="label">{{adreca}}</span><p>08737 Torrelles de Foix<br>{{alt_penedes_barcelona}}</p></div>
+        <div><span class="label">{{correu}}</span><p><a href="mailto:info@ccdeltae.com">info@ccdeltae.com</a></p></div>
+        <div><span class="label">{{projectes}}</span><p><a href="https://portantveus.cat" target="_blank" rel="noopener">portantveus.cat</a><br><a href="https://activapp.cat" target="_blank" rel="noopener">activapp.cat</a></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="legal">
+  <div class="wrap">
+    <span>© 2026 Consulting Color Deltae S.L.</span>
+    <span>Torrelles de Foix · Alt Penedès</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.filters button');
+  var items = document.querySelectorAll('#project-list .project');
+  var empty = document.getElementById('empty');
+  function apply(f){
+    var shown = 0;
+    items.forEach(function(li){
+      var ok = f === 'all' || li.dataset.areas.split(' ').indexOf(f) !== -1;
+      li.hidden = !ok; if(ok) shown++;
+    });
+    empty.hidden = shown !== 0;
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.filter === f)); });
+  }
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.filter); }); });
+})();
+</script>
+</body>
+</html>
