@@ -2,7 +2,7 @@
   "_label_lang_nav": "Idioma",
   "lang": "es",
   "meta_description": "Consulting Color Deltae S.L. — desarrollo web y de aplicaciones, edición, fotografía y audiovisual, contenidos digitales y formación desde el Penedès.",
-  "consulting_color_deltae_inici": "Consulting Color Deltae, inicio",
+  "consulting_color_deltae_inici": "Deltae Consulting Color, inicio",
   "navegacio_principal": "Navegación principal",
   "serveis": "Servicios",
   "projectes": "Proyectos",
@@ -96,5 +96,8 @@
   "expliqueu_nos_que_necessiteu": "Contadnos qué necesitáis, ya sea una web, una aplicación, un libro, una sesión de fotos, un vídeo, un curso o una estrategia para haceros visibles.",
   "adreca": "Dirección",
   "alt_penedes_barcelona": "Alt Penedès, Barcelona",
-  "correu": "Correo"
+  "correu": "Correo",
+  "meta_title": "Deltae · Webs, edición, fotografía y formación en el Penedès",
+  "_og_locale": "es_ES",
+  "_og_image_alt": "Deltae Consulting Color: franja espectral de colores"
 }
